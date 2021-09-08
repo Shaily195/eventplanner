@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title></title>
+  <style type=text/css>
+  table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 15px;
+}
+th {
+  text-align: left;
+}
+table {
+  border-spacing: 5px;
+}
+#t01 {
+  width: 100%;
+  background-color: #f1f1c1;
+}
+</style>
+<body>
+  <h2>My Booking<h2>
+
+<table style="width:100%" id="t01">
+  <tr>
+    <th>Booking Id</th>
+    <th>Event Name</th>
+    <th>Booking date</th>
+    <th>Booking Status</th>
+    <th>Action</th>
+  </tr>
+    {% for i in b%}
+    
+  <tr>
+  
+   <td>{{i.book_id}}</td>
+   <td>{{i.e_name.name}}</td>
+   <td>{{i.date}}</td>
+   <td>{%ifequal i.status 0%}
+    <p>pending</p>
+    {%else%}
+    <p>confirm</p>
+    {%endifequal%}
+   <td>
+{%ifequal i.status 0%}
+    <a href="{%url 'event_user:can' id=i.id%}">Cancel</a>
+    {%else%}
+    <p>confirm</p>
+    {%endifequal%}
+    </td>
+   
+  
+   {%endfor%}
+  </tr>
+  
+  <tr>
+    {%for i in book%}
+    <td>{{i.book_id}}</td>
+    <td>{{i.ename.name}}</td>
+    <td>{{i.date}}</td>
+    <td>{%ifequal i.status 0%}
+    <p>pending</p>
+    {%else%}
+    <p>confirm</p>
+    {%endifequal%}
+   <td>
+{%ifequal i.status 0%}
+<a href="{%url 'event_user:can1' id=i.id%}">Cancel</a>
+    {%else%}
+    <p>confirm</p>
+    {%endifequal%}
+  </tr>
+  {%endfor%}
+</body>
+</table>
+</head>
+</html>

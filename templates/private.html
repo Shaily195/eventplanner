@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+{% if messages %}
+  {% for i in messages %}
+    <script type="text/javascript">alert('{{ i }}')</script>
+  {% endfor %}
+{% endif %}  
+
+
+
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="{% static 'css/admin_login.css' %}">
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+   
+	<style>
+
+  .loginBox{
+    margin:80 0 0 0;
+    display:block;
+  }
+  </style>
+
+</head>
+<div class="container-fluid header text-center">
+  
+</div>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 loginBox">
+         <h2>Book Event<h2>
+<body>
+<div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="inputBox" style="font-size:18px;">
+<form method="post">
+{%csrf_token%}
+<div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="inputbox"> 
+
+No. of persons<br>
+               <select name="per" id="per" class="form-control">
+ 
+                <option value="200">100-200</option>
+                <option value="300">200-300</option>
+                <option value="400">300-400</option>
+                <option value="500">400-500</option>
+               </select><br/>
+ Date<br>
+              <input type="date" name="date" autocomplete="off" required><br>
+ venue<br>
+               <select name="v" class="form-control">
+                
+                 {%for i in ve%}
+                <option value="{{i.id}}">{{i.ven}}</option>
+                {%endfor%}
+              </select><br>
+catering<br>
+               <input type="radio" name="cat" value="yes"> 
+               Yes
+               <input type="radio" name="cat" value="no">
+               No
+Event<br>
+ <select name="ev" class="form-control">
+                
+                 {%for i in ev%}
+                <option value="{{i.id}}">{{i.name}}</option>
+                {%endfor%}
+              </select><br>
+Decoration_theme<br>
+ <select name="d" class="form-control">
+                
+                 {%for i in de%}
+                <option value="{{i.id}}">{{i.dec}}</option>
+                {%endfor%}
+              </select><br>
+
+
+        
+<input type="submit" value="book" name="" style="margin:0 25% 0 25%;"><br>
+ </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+</form>
+</body>
+</html>

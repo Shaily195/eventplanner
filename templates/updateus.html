@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<html>
+{% if messages %}
+  {% for i in messages %}
+    <script type="text/javascript">alert('{{ i }}')</script>
+  {% endfor %}
+{% endif %}  
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/admin_login.css' %}">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+   
+    <style>
+
+  .loginBox{
+    margin:80 0 0 0;
+    display:block;
+  }
+  </style>
+
+</head>
+<div class="container-fluid header text-center">
+  
+</div>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 loginBox">
+        <h2> Update Profile</h2>
+<body>
+<div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="inputBox" style="font-size:18px;">
+<form method="post">
+{%csrf_token%}
+<div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="inputbox">
+<form  method="post" enctype="multipart/form-data">
+
+   
+        {%csrf_token%}
+        <input type="text" name="fname" placeholder="Enter Name" value="{{user.user.first_name}}"><br/>
+        <input type="text" name="lname" placeholder="Enter Last name" value="{{user.user.last_name}}"><br/>
+        <input type="text" name="uname" placeholder="Enter Username" value="{{user.user.username}}"><br/>
+        <input type="text" name="email" placeholder="Enter email" value="{{user.user.email}}"><br/>
+        <input type="text" name="pwd" placeholder="Enter Password" required><br/>
+        <input type="text" name="mob" placeholder="Enter Mobile" value="{{user.mobile}}"><br/>
+        <input type="text" name="address" placeholder="Enter address" value="{{user.address}}"><br/>
+        <input type="submit" name="" value="Update">
+    </form>
+
+ </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+</form>
+</body>
+</html>

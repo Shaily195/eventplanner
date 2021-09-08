@@ -1,0 +1,13 @@
+body{
+	padding:30px;
+}
+.outer-div{
+	padding:50px;
+	background-color: #262626; 
+}
+.inner-div{
+	max-width: 500px;
+	max-height: 200px;
+	background-color: #ccc;
+	margin: 0 auto;
+}

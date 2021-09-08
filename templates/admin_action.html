@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+<head>
+	<title></title>
+	<link rel="stylesheet" href="{% static 'css/admin_login.css' %}">
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+   
+	<style>
+
+  .loginBox{
+    margin:80 0 0 0;
+    display:block;
+  }
+  </style>
+
+</head>
+<div class="container-fluid header text-center">
+  
+</div>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 loginBox">
+         
+<body>
+<div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="inputBox" style="font-size:18px;">
+<form method="post">
+{%csrf_token%}
+<div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="inputbox">
+Remark<br>
+<input type="text" name="remark" placeholder="Admin remark"><br>
+Action<br>
+
+               <label for ="action"></label>
+               <select name="action" id="action">
+                <option value="confirm">confirm</option>
+                <option value="Cancel">Cancel</option><br>
+               
+               </select>
+
+              
+<input type="submit" value="save" name="" style="margin:0 25% 0 25%;"><br>
+ </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+</form>
+</body>
+</html>

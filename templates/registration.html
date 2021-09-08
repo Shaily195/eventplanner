@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registration| Welcome</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  
+
+
+
+
+  
+  <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+</head>
+<body class="bg-dark">
+  
+
+<div class="container-fluid header text-center bg-primary">
+  <h1 style="color: white;"> Events Management System</h1>
+</div>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-0 btn-bar" onclick="navigation(event)">
+      <a href="#" class="myactive" id="registration">Registration</a>
+      <a href="#" class="" id="login">Login</a>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 box bg-secondary" style="display:block;">
+      <!-- <span style="font-size:26px;">Registration</span> -->
+      <center><h1 class="bg-primary" style="color: white; margin-right: 30px; margin-left: 15px"> Registration</h1></center>
+      <span style="font-size:18px;">{{ status }}</span>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="inputbox">
+            <form action="{% url 'signup'%}"  method="post">
+              {% csrf_token %}
+
+              First Name: <input type="text" name="fname"><br>
+              Last Name: <input type="text" name="lname"><br>
+              Username<br>
+              <input type="text" name="uname" autocomplete="off" required><br>
+
+              E-Mail<br>
+              <input type="text" name="email" autocomplete="off" required><br>
+
+            
+              Mobile<br>
+              <input type="text" name="mob" minlength="10" maxlength="10" autocomplete="off" pattern="[6-9]{1}[0-9]{9}" title="Numbers only" required><br>
+
+              Password<br>
+              <input type="password" name="pwd" minlength="8" autocomplete="off" required><br>
+
+              Address<br>
+              <input type="text" name="address" autocomplete="off" required><br>
+
+
+              UserType: 
+    <select name="type">
+      <option value="event_manager">event_manager</option>
+      <option value="event_user">event_user</option>
+    </select><br>
+              <input type="submit" value="Submit" name="submit" style="margin:0 35% 0% 5%;">
+            </form>
+          </div>
+        </div>
+    </div>
+    <a href="#" onclick="navigation(event)" id="loginLink" style="color: white; margin:10px 5px 10px 50px;">Already registered? Login</a>
+
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 loginBox bg-secondary" style="display:none;">
+      <center><h1 class="bg-primary" style="color: white;margin-right: 30px; margin-left: 15px;">Login</h1></center>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="inputBox" style="font-size:18px;">
+            <form action="{% url 'login_call'%}" method ="post">
+              {% csrf_token %}
+            
+              Username<br>
+              <input type="text" name="uname" autocomplete="off" required><br>
+
+              Password<br>
+              <input type="password" name="pwd" minlength="8" autocomplete="off" required>
+
+              <input type="submit" value="Login" name="login" style="margin:0 35% 0 5%;">
+            </form>
+          </div>
+        </div>
+      </div>
+     <a href="#" onclick="navigation(event)" id="regLink" style="color: white; margin:10px 5px 10px 50px;">Not a registered user? Register </a><br>
+     
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
